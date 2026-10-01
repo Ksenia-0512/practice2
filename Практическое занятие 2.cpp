@@ -92,7 +92,11 @@ public:
     // Подзадача 5
     static double TriangleArea(double base, double height)
     {
-        return 0;
+        double area = 0.5 * base * height;
+        double result = round(area * 100.0) / 100.0;
+        cout << "Площадь треугольника: " << result << endl;
+        return result;
+        
     }
 };
 
