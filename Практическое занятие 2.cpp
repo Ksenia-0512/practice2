@@ -1,5 +1,6 @@
 ﻿#include <iostream> // Используем заголовочный файл потока ввода/вывода
 #include <cmath> // Используем заголовочный файл математических функций
+#include <numbers>
 
 #include "Переменные.cpp"
 #include "Консоль.cpp"
@@ -60,13 +61,26 @@ public:
     // Подзадача 2
     static double CircleArea(double radius)
     {
-        return 0;
+        // Вычисляем
+        double area = std::numbers::pi * std::pow(radius, 2);
+        // Округляем
+        double result = round(area * 100.0) / 100.0;
+        // Выводим в консоль рассчёты
+        cout << "Площадь круга: " << result << endl;
+
+        return result;
     }
 
     // Подзадача 3
     static double RectangleArea(double first, double second)
     {
-        return 0;
+        // Вычисляем
+        double tr =  first * second;
+        // Округляем
+        double result = round(tr * 100.0) / 100.0;
+        // Выводим в консоль рассчёты
+        cout << "Площадь треугольника: " << result << endl;
+        return result;
     }
 
     // Подзадача 4
