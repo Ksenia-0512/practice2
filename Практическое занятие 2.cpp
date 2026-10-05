@@ -86,24 +86,124 @@ public:
     // Подзадача 4
     static double TriangleArea(double first, double second, double third)
     {
-        return 0;
+
+        if (first + second > third && first + third > second && second + third > first)
+        {
+            double p = (first + second + third) / 2.0; // Полупериметр
+            double area = sqrt(p * (p - first) * (p - second) * (p - third)); // Корень из произведения
+            double result = round(area * 100.0) / 100.0;
+            cout << "Площадь треугольника (Герон): " << result << endl;
+            return result;
+        }
+        else
+        {
+            cout << "Ошибка: Треугольник с такими сторонами не существует!" << endl;
+            return 0;
+        }
+
     }
 
     // Подзадача 5
     static double TriangleArea(double base, double height)
     {
-        return 0;
+        double area = 0.5 * base * height;
+        double result = round(area * 100.0) / 100.0;
+        cout << "Площадь треугольника: " << result << endl;
+        return result;
     }
+
+    //  метод факториала
+    static int Factorial(int num)
+    {
+        if (num < 0) {
+            return  0;
+        }
+        int result = 1;
+        for (int i = 2; i <= num; ++i) {
+            result *= i;
+        }
+        // Выводим в консоль рассчёты
+        cout << "Факториал: " << result << endl;
+        return result;
+    }
+    
+
 };
 
 int main()
 {
     Console::SetRussianOnWindows();
+    
+    while (true) 
+    { 
+        int type;
+        cout << "Выбери кейс 1-5 " << endl;
+        cout << "[1] Площадь круга" << endl;
+        cout << "[2] Площадь прямоугольника" << endl;
+        cout << "[3] Площадь треугольника (Герон)" << endl;
+        cout << "[4] Площадь треугольника" << endl;
+        cout << "[5] Факториал" << endl;
+        cin >> type;
+
+        if (type == 0) break;
+        
+        switch (type)
+        { 
+        case 1:
+            double radius;
+            cout << "Введите радиус" << endl;
+            cin >> radius;
+            Calculator::CircleArea(radius);
+            break;
+        case 2:
+            double ra_first;
+            double ra_second;
+            cout << "Введите сторону а" << endl;
+            cin >> ra_first;
+            cout << "Введите сторону b" << endl;
+            cin >> ra_second;
+            Calculator::RectangleArea(ra_first, ra_second);
+            break;
+        case 3:
+            double ta_first;
+            double ta_second;
+            double  ta_third;
+            cout << "Введите сторону а" << endl;
+            cin >> ta_first;
+            cout << "Введите сторону b" << endl;
+            cin >> ta_second;
+            cout << "Введите сторону с" << endl;
+            cin >> ta_third;
+            Calculator::TriangleArea(ta_first, ta_second, ta_third);
+
+            break;
+        case 4:
+            double base;
+            double hight;
+            cout << "Введите основание" << endl;
+            cin >> base;
+            cout << "Введите высоту" << endl;
+            cin >> hight;
+            Calculator::TriangleArea(base, hight);
+            break;
+        case 5:
+            int num;
+            cout << "Введите число" << endl;
+            cin >> num;
+            Calculator::Factorial(num);
+            break;
+        default:
+            cout << "не верные значения" << endl;
+            break;
+        }
+    }
+
+
     // Подзадача 1
 
     // Для проверки задания: снять комментарии, заполнить методы переменными, 
     // запустить и посмотреть консольный вывод
-    Calculator::Sum(3., 5.);
+    //Calculator::Sum(3., 5.);
     // Calculator::CircleArea();
     // Calculator::RectangleArea();
     // Calculator::TriangleArea();
