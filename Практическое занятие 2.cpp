@@ -71,45 +71,16 @@ public:
         return result;
     }
 
-    // Подзадача 3
-    static double RectangleArea(double first, double second)
-    {
-        // Вычисляем
-        double tr =  first * second;
-        // Округляем
-        double result = round(tr * 100.0) / 100.0;
-        // Выводим в консоль рассчёты
-        cout << "Площадь треугольника: " << result << endl;
-        return result;
-    }
-
     // Подзадача 4
     static double TriangleArea(double first, double second, double third)
     {
-
-        if (first + second > third && first + third > second && second + third > first)
-        {
-            double p = (first + second + third) / 2.0; // Полупериметр
-            double area = sqrt(p * (p - first) * (p - second) * (p - third)); // Корень из произведения
-            double result = round(area * 100.0) / 100.0;
-            cout << "Площадь треугольника (Герон): " << result << endl;
-            return result;
-        }
-        else
-        {
-            cout << "Ошибка: Треугольник с такими сторонами не существует!" << endl;
-            return 0;
-        }
-
+        return 0;
     }
 
     // Подзадача 5
     static double TriangleArea(double base, double height)
     {
-        double area = 0.5 * base * height;
-        double result = round(area * 100.0) / 100.0;
-        cout << "Площадь треугольника: " << result << endl;
-        return result;
+        return 0;
     }
 
     //  метод факториала
