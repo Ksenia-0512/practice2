@@ -74,13 +74,32 @@ public:
     // Подзадача 4
     static double TriangleArea(double first, double second, double third)
     {
-        return 0;
+
+        if (first + second > third && first + third > second && second + third > first)
+        {
+            double p = (first + second + third) / 2.0; // Полупериметр
+            double area = sqrt(p * (p - first) * (p - second) * (p - third)); // Корень из произведения
+            double result = round(area * 100.0) / 100.0;
+            cout << "Площадь треугольника (Герон): " << result << endl;
+            return result;
+        }
+        else
+        {
+            cout << "Ошибка: Треугольник с такими сторонами не существует!" << endl;
+            return 0;
+        }
+
     }
 
     // Подзадача 5
     static double TriangleArea(double base, double height)
     {
         return 0;
+        double area = 0.5 * base * height;
+        double result = round(area * 100.0) / 100.0;
+        cout << "Площадь треугольника: " << result << endl;
+        return result;
+
     }
 
     //  метод факториала
